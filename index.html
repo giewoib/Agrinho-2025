@@ -1,141 +1,461 @@
+
+Você quer um site profissional sobre tecnologia no campo, com imagens e todos os elementos funcionais. Como padrão, vou criar um arquivo HTML único com CSS e JavaScript embutidos para facilitar a visualização e o uso direto no navegador. 
+
+O site será visualmente moderno, responsivo, terá uma estrutura clara com:
+- Cabeçalho com logo e menu de navegação
+- Seção hero com imagem e chamada principal
+- Seções sobre tecnologia no campo com imagens ilustrativas e textos explicativos
+- Seção de vantagens/benefícios
+- Seção de contato funcional com formulário válido
+- Rodapé com informações adicionais
+
+Também incluirei imagens usando URLs confiáveis e CDN para ícones, mantendo tudo visualmente agradável e funcional.
+
+Próximo passo: Vou criar o arquivo HTML completo com todos esses elementos conforme planejado.
+
+
+`site-tecnologia-campo.html`
+```html
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Relação do Campo com a Tecnologia</title>
+  <title>Tecnologia no Campo - Inovação Agrícola</title>
   <style>
-    /* Reset & base styles */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f5f9f9;
+      color: #333;
       line-height: 1.6;
-      background: linear-gradient(135deg, #a2d5c6, #07689f);
-      color: #0a1f44;
-      min-height: 100vh;
+    }
+
+    header {
+      background-color: #2c7a7b;
+      color: #fff;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      cursor: default;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #ffdd57;
+      outline: none;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      height: 80vh;
+      color: white;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 20px;
-    }
-    header {
       text-align: center;
-      margin-bottom: 30px;
+      padding: 0 2rem;
+      position: relative;
     }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      color: #f0f0f0;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(44, 122, 123, 0.7);
+      z-index: 0;
     }
-    header p {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #e3f6f5;
-      max-width: 600px;
-      margin: 0 auto;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
     }
-    main {
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 15px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.2);
-      max-width: 900px;
-      padding: 30px 40px;
-    }
-    section {
-      margin-bottom: 30px;
-    }
-    section h2 {
-      font-size: 2rem;
-      color: #07689f;
-      margin-bottom: 15px;
-      border-left: 5px solid #3da9fc;
-      padding-left: 12px;
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
       font-weight: 700;
     }
-    section p {
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .btn-primary {
+      background-color: #ffdd57;
+      color: #2c7a7b;
+      padding: 0.75rem 2rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
       font-size: 1.1rem;
-      line-height: 1.7;
-      color: #333;
-      text-align: justify;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 10px rgba(255, 221, 87, 0.5);
     }
-    ul {
-      margin-top: 12px;
-      margin-left: 20px;
-      color: #144d53;
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background-color: #fccc20;
+      outline: none;
     }
-    ul li {
-      margin-bottom: 8px;
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #2c7a7b;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #ffdd57;
+      display: inline-block;
+      padding-bottom: 0.3rem;
+      font-weight: 700;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 25px rgba(0,0,0,0.15);
+      outline: none;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .card-content {
+      padding: 1rem 1.5rem 2rem;
+      flex-grow: 1;
+      color: #555;
+    }
+
+    .card-content h3 {
+      margin-top: 0;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #2c7a7b;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-content p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .benefits-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .benefits-list li {
+      background: url('https://img.icons8.com/ios-filled/24/2c7a7b/checkmark.png') no-repeat left center;
+      padding-left: 30px;
+      margin-bottom: 0.7rem;
       font-size: 1.1rem;
+      color: #2c7a7b;
     }
+
+    .contact-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-form h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      color: #2c7a7b;
+      font-weight: 700;
+      font-size: 1.6rem;
+      text-align: center;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: #444;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #2c7a7b;
+      outline: none;
+    }
+
+    .contact-form button {
+      width: 100%;
+      background-color: #2c7a7b;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 0.85rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover,
+    .contact-form button:focus {
+      background-color: #1e5251;
+      outline: none;
+    }
+
     footer {
-      margin-top: 40px;
+      background-color: #2c7a7b;
+      color: white;
+      text-align: center;
+      padding: 1rem 2rem;
       font-size: 0.9rem;
-      color: #e3f6f5;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      position: relative;
+      bottom: 0;
+      width: 100%;
     }
+
     @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-      main {
-        padding: 20px 25px;
-      }
-      header h1 {
+      .hero h1 {
         font-size: 2rem;
       }
-      section h2 {
-        font-size: 1.5rem;
+      .hero p {
+        font-size: 1.1rem;
       }
-      section p, ul li {
-        font-size: 1rem;
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      header {
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Relação do Campo com a Tecnologia</h1>
-    <p>Como a tecnologia está transformando o cotidiano do meio rural, trazendo inovação, produtividade e sustentabilidade.</p>
+    <div class="logo" tabindex="0">AgroTech</div>
+    <nav aria-label="Menu principal">
+      <ul>
+        <li><a href="#tecnologias" tabindex="0">Tecnologias</a></li>
+        <li><a href="#beneficios" tabindex="0">Benefícios</a></li>
+        <li><a href="#contato" tabindex="0">Contato</a></li>
+      </ul>
+    </nav>
   </header>
+
+  <section class="hero" role="banner" aria-label="Tecnologia no campo - imagem e introdução">
+    <div class="hero-content">
+      <h1>Tecnologia no Campo: A Revolução da Agricultura</h1>
+      <p>Transformando o campo com inovação, sustentabilidade e eficiência para um futuro melhor.</p>
+      <button class="btn-primary" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'});" aria-label="Ir para a seção de contato">Fale Conosco</button>
+    </div>
+  </section>
+
   <main>
-    <section>
-      <h2>Modernização da Agricultura</h2>
-      <p>A tecnologia tem revolucionado a agricultura tradicional, introduzindo ferramentas que aumentam a eficiência e a produção. Com máquinas agrícolas modernas, sensores e softwares de gestão, o campo tornou-se mais produtivo, reduzindo desperdícios e otimizando recursos.</p>
+    <section id="tecnologias" aria-labelledby="titulo-tecnologias">
+      <h2 id="titulo-tecnologias">Tecnologias que Estão Transformando o Campo</h2>
+      <div class="grid-3">
+        <article class="card" tabindex="0" aria-label="Agricultura de precisão">
+          <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=800&q=80" alt="Máquinas agrícolas modernas trabalhando na lavoura" />
+          <div class="card-content">
+            <h3>Agricultura de Precisão</h3>
+            <p>Uso de GPS, sensores e drones para monitorar culturas, garantindo melhor manejo e aumento da produtividade com uso otimizado dos recursos.</p>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0" aria-label="Internet das Coisas no campo">
+          <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=800&q=80" alt="Sensores instalados em árvores para monitoramento" />
+          <div class="card-content">
+            <h3>Internet das Coisas (IoT)</h3>
+            <p>Dispositivos conectados para monitoramento em tempo real das condições do solo, clima e das plantações, permitindo decisões rápidas e precisas.</p>
+          </div>
+        </article>
+
+        <article class="card" tabindex="0" aria-label="Uso de inteligência artificial na agricultura">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Processamento de dados agrícolas com inteligência artificial" />
+          <div class="card-content">
+            <h3>Inteligência Artificial</h3>
+            <p>Algoritmos que analisam dados para prever pragas, otimizar irrigação e maximizar colheitas, reduzindo custos e impactos ambientais.</p>
+          </div>
+        </article>
+      </div>
     </section>
-    <section>
-      <h2>Tecnologias-chave no Campo</h2>
-      <ul>
-        <li><strong>Drones:</strong> Para monitoramento de lavouras e análises aéreas precisas.</li>
-        <li><strong>Sistemas de irrigação inteligente:</strong> Que economizam água e garantem a melhor absorção para as plantas.</li>
-        <li><strong>Tratores autônomos:</strong> Equipamentos que executam tarefas com mínima intervenção humana.</li>
-        <li><strong>Big Data e IoT:</strong> Coleta e análise de dados para tomada de decisões com base em informações reais.</li>
+
+    <section id="beneficios" aria-labelledby="titulo-beneficios">
+      <h2 id="titulo-beneficios">Benefícios da Tecnologia no Campo</h2>
+      <ul class="benefits-list">
+        <li>Aumento significativo da produtividade agrícola.</li>
+        <li>Redução do consumo de água e insumos químicos.</li>
+        <li>Monitoramento e controle mais eficiente de doenças e pragas.</li>
+        <li>Diminuição dos impactos ambientais e maior sustentabilidade.</li>
+        <li>Facilita a tomada de decisão com dados precisos e em tempo real.</li>
       </ul>
     </section>
-    <section>
-      <h2>Benefícios da Tecnologia no Campo</h2>
-      <p>Os agricultores ganham com:</p>
-      <ul>
-        <li>Maior produtividade e rendimento das culturas.</li>
-        <li>Redução dos custos operacionais.</li>
-        <li>Monitoramento em tempo real das condições do solo e clima.</li>
-        <li>Práticas sustentáveis que preservam o meio ambiente.</li>
-      </ul>
-    </section>
-    <section>
-      <h2>Desafios e Futuro</h2>
-      <p>Apesar dos avanços, o campo enfrenta desafios como o acesso à tecnologia em regiões remotas e a necessidade de capacitação dos produtores. Investimentos em infraestrutura e educação tecnológica são fundamentais para democratizar essas ferramentas e garantir o futuro da agricultura inteligente.</p>
+
+    <section id="contato" aria-labelledby="titulo-contato">
+      <h2 id="titulo-contato">Fale Conosco</h2>
+      <form class="contact-form" aria-describedby="desc-form" onsubmit="return handleFormSubmit(event)" novalidate>
+        <div id="desc-form" hidden>Formulário para contato sobre tecnologia no campo.</div>
+        <h3>Entre em contato para saber mais</h3>
+
+        <label for="nome">Nome completo <span aria-hidden="true">*</span></label>
+        <input type="text" id="nome" name="nome" required aria-required="true" aria-describedby="msg-nome" />
+        <span id="msg-nome" role="alert" style="color:#cc0000;display:none;">Por favor, informe seu nome.</span>
+
+        <label for="email">Email <span aria-hidden="true">*</span></label>
+        <input type="email" id="email" name="email" required aria-required="true" aria-describedby="msg-email" />
+        <span id="msg-email" role="alert" style="color:#cc0000;display:none;">Por favor, informe um email válido.</span>
+
+        <label for="mensagem">Mensagem <span aria-hidden="true">*</span></label>
+        <textarea id="mensagem" name="mensagem" rows="5" required aria-required="true" aria-describedby="msg-msg"></textarea>
+        <span id="msg-msg" role="alert" style="color:#cc0000;display:none;">Por favor, escreva sua mensagem.</span>
+
+        <button type="submit" aria-label="Enviar mensagem de contato">Enviar</button>
+        <p id="form-status" role="alert" aria-live="assertive" style="margin-top:1rem; color:green; display:none;"></p>
+      </form>
     </section>
   </main>
+
   <footer>
-    &copy; Produzido por Geovana Beatricy.
+    &copy; 2025 Produzido por Geovana Beatricy. Todos os direitos reservados.
   </footer>
+
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      let valid = true;
+
+      const nome = document.getElementById('nome');
+      const email = document.getElementById('email');
+      const mensagem = document.getElementById('mensagem');
+
+      const msgNome = document.getElementById('msg-nome');
+      const msgEmail = document.getElementById('msg-email');
+      const msgMsg = document.getElementById('msg-msg');
+      const status = document.getElementById('form-status');
+
+      // Reset messages
+      msgNome.style.display = 'none';
+      msgEmail.style.display = 'none';
+      msgMsg.style.display = 'none';
+      status.style.display = 'none';
+      status.style.color = 'green';
+      status.textContent = '';
+
+      // Validate nome
+      if (!nome.value.trim()) {
+        msgNome.style.display = 'block';
+        valid = false;
+      }
+
+      // Validate email with simple regex
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!email.value.trim() || !emailPattern.test(email.value)) {
+        msgEmail.style.display = 'block';
+        valid = false;
+      }
+
+      // Validate mensagem
+      if (!mensagem.value.trim()) {
+        msgMsg.style.display = 'block';
+        valid = false;
+      }
+
+      if (!valid) {
+        return false;
+      }
+
+      // Simulate sending form data (could be extended with backend or email API)
+      status.style.color = 'green';
+      status.textContent = 'Mensagem enviada com sucesso. Obrigado por entrar em contato!';
+      status.style.display = 'block';
+
+      // Reset form
+      event.target.reset();
+
+      return true;
+    }
+  </script>
 </body>
 </html>
-
-```
